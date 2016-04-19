@@ -4,8 +4,15 @@ node_js: '5'
 addons:
   postgresql: '9.4'
 before_script:
-  - bash install.sh
+- bash install.sh
 script:
-  - source env.sh && npm run test
+- source env.sh && npm run test
 notifications:
   slack: devops-training-spb:kfjTXFxdFQxyBbAJ0UtYVqOe
+deploy:
+  provider: heroku
+  api_key:
+    secure: sV7yuOPgwkJPi0BJ+IkQ7SHt9Wvj2YV0Ih8H1e5TUUcuPRYjpmDClsERfCrppZyE0JlmpIdX/dgMk6OPhVo/TlaqpUTVdMmRCBLD+BgsPUOoGJt7L9EID5nK3D35EHIGQEz/DQaCy+OreRMdpEpaBZ66Ino3On5sK3op/1Fjs/7h4Baszz65LnQlP8vo02wnWIuC+EOM7lKSuTcf+0fd9gw/e+NZ4ZQjpYu3++sO3ArvPOYn6QfDFEHePeYatBedbkDyz8h+4ZNLwTyLe3IVuOGGCnaLkp3pFuLWAWyocC0IziYX6bxZvvVoFQTboPy4TWKvAu7gJRwLUvDp6sxl6NGb2bcBpxF1x99ZqXXRf3POC0fmNGQab7KwDhTCpfhLlVw/CGCX1RVVptLpPDaT2+FAPNvESWD1G1XxuZfQe4JyMzF2ll+pNztjzgwpn6cqj6PRf7oaeAdtPfJdrYF8bOvh5CcnTxMsPzWDdeRPGfAnzVZJFdFnTH+cb6PPyXa20WoFCIS/lfA8sDN+TxblcdZD1ogeJEgZt75z46pg5SNS+Gmo2tHUa61oJtbN/3x6mv+eQp2+SxXVmC2u34JvA2O/Y70O+2z1RlTsomecF7MzjhtMuDN/4lpFsIq5pm87iz4kNpctzWFMRid/uYNZx743o93fPs4uCTDCNMDpIZs=
+  app: stormy-savannah-23717
+  on:
+    repo: valkan78/delivery-pipeline-training
